@@ -1,0 +1,119 @@
+@import "tailwindcss";
+
+/* Global Security & Asset Protection Rules */
+* {
+  -webkit-user-select: none !important;
+  -moz-user-select: none !important;
+  -ms-user-select: none !important;
+  user-select: none !important;
+  -webkit-touch-callout: none !important;
+}
+
+/* Allow text selection ONLY in form inputs and textareas so users can type */
+input, textarea {
+  -webkit-user-select: text !important;
+  -moz-user-select: text !important;
+  -ms-user-select: text !important;
+  user-select: text !important;
+}
+
+/* Strict Image & Canvas Drag/Download Protection */
+img, video, canvas, svg, iframe {
+  -webkit-user-drag: none !important;
+  user-drag: none !important;
+  pointer-events: auto;
+}
+
+/* Anti-Print & Watermark Rules */
+@media print {
+  html, body {
+    display: none !important;
+  }
+}
+
+/* Dot Matrix Grid Pattern (Studio Aesthetic for Light and Dark Modes) */
+.bg-dot-pattern {
+  background-image: radial-gradient(rgba(37, 99, 235, 0.12) 1.25px, transparent 1.25px);
+  background-size: 20px 20px;
+}
+
+.dark .bg-dot-pattern {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.08) 1.25px, transparent 1.25px);
+}
+
+.bg-dot-pattern-dense {
+  background-image: radial-gradient(rgba(37, 99, 235, 0.2) 1.5px, transparent 1.5px);
+  background-size: 14px 14px;
+}
+
+.dark .bg-dot-pattern-dense {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.12) 1.5px, transparent 1.5px);
+}
+
+/* Unified Bright Studio Blue Secondary Accent Classes */
+.bg-sakana-navy, .bg-sakana-blue {
+  background-color: #2563EB; /* Bright Cobalt Studio Blue */
+}
+.dark .bg-sakana-navy, .dark .bg-sakana-blue {
+  background-color: #3B82F6; /* Luminous Blue in Dark Mode */
+}
+
+.bg-sakana-navy-dark {
+  background-color: #1D4ED8;
+}
+.dark .bg-sakana-navy-dark {
+  background-color: #2563EB;
+}
+
+.bg-sakana-navy-light {
+  background-color: #3B82F6;
+}
+
+.text-sakana-navy, .text-sakana-blue {
+  color: #2563EB;
+}
+.dark .text-sakana-navy, .dark .text-sakana-blue {
+  color: #60A5FA;
+}
+
+.border-sakana-navy, .border-sakana-blue {
+  border-color: #2563EB;
+}
+.dark .border-sakana-navy, .dark .border-sakana-blue {
+  border-color: #3B82F6;
+}
+
+@layer utilities {
+  @keyframes marquee {
+    0% { transform: translateX(0%); }
+    100% { transform: translateX(-50%); }
+  }
+
+  @keyframes marquee-reverse {
+    0% { transform: translateX(-50%); }
+    100% { transform: translateX(0%); }
+  }
+
+  .animate-marquee {
+    display: flex;
+    width: max-content;
+    animation: marquee 30s linear infinite;
+  }
+
+  .animate-marquee:hover {
+    animation-play-state: paused;
+  }
+
+  .animate-marquee-reverse {
+    display: flex;
+    width: max-content;
+    animation: marquee-reverse 30s linear infinite;
+  }
+
+  .animate-marquee-reverse:hover {
+    animation-play-state: paused;
+  }
+}
+
+
+
