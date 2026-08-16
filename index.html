@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>株式会社魚 (Studio Sakana Co., Ltd.) — Official Studio</title>
+    <!-- Favicon & Touch Icon with Dark Mode (White) and Light Mode (Normal) Support -->
+    <link id="favicon-dark" rel="icon" type="image/png" media="(prefers-color-scheme: dark)" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M15 50 C25 25, 60 20, 75 40 C85 25, 95 35, 85 50 C95 65, 85 75, 75 60 C60 80, 25 75, 15 50 Z' fill='%23FFFFFF'/%3E%3C/svg%3E" />
+    <link id="favicon-light" rel="icon" type="image/png" media="(prefers-color-scheme: light)" href="https://raw.githubusercontent.com/Sungjiyo/sjy_porto/refs/heads/main/Sakana/LOGO%20SAKANA%20icon.png" />
+    <link id="favicon-main" rel="icon" type="image/png" href="https://raw.githubusercontent.com/Sungjiyo/sjy_porto/refs/heads/main/Sakana/LOGO%20SAKANA%20icon.png" />
+    <link id="apple-touch-icon" rel="apple-touch-icon" href="https://raw.githubusercontent.com/Sungjiyo/sjy_porto/refs/heads/main/Sakana/LOGO%20SAKANA%20icon.png" />
+    <script>
+      (function() {
+        var originalUrl = 'https://raw.githubusercontent.com/Sungjiyo/sjy_porto/refs/heads/main/Sakana/LOGO%20SAKANA%20icon.png';
+        var whiteDataUrl = null;
+        var darkModeQuery = window.matchMedia('(prefers-color-scheme: dark)');
+
+        function applyFavicon() {
+          var isDark = darkModeQuery.matches;
+          var activeUrl = (isDark && whiteDataUrl) ? whiteDataUrl : originalUrl;
+          
+          var mainFavicon = document.getElementById('favicon-main');
+          if (mainFavicon) mainFavicon.href = activeUrl;
+          
+          var appleIcon = document.getElementById('apple-touch-icon');
+          if (appleIcon) appleIcon.href = activeUrl;
+        }
+
+        var img = new Image();
+        img.crossOrigin = 'Anonymous';
+        img.onload = function() {
+          try {
+            var canvas = document.createElement('canvas');
+            canvas.width = img.naturalWidth || 128;
+            canvas.height = img.naturalHeight || 128;
+            var ctx = canvas.getContext('2d');
+            ctx.drawImage(img, 0, 0);
+            ctx.globalCompositeOperation = 'source-in';
+            ctx.fillStyle = '#FFFFFF';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            whiteDataUrl = canvas.toDataURL('image/png');
+            applyFavicon();
+          } catch (e) {
+            console.error('Favicon processing error:', e);
+          }
+        };
+        img.src = originalUrl;
+
+        if (darkModeQuery.addEventListener) {
+          darkModeQuery.addEventListener('change', applyFavicon);
+        } else if (darkModeQuery.addListener) {
+          darkModeQuery.addListener(applyFavicon);
+        }
+        applyFavicon();
+      })();
+    </script>
+    <!-- Strict Anti-Crawling, Anti-Scraping & Anti-Indexing Meta Directives -->
+    <meta name="robots" content="noindex, nofollow, noarchive, noimageindex, nosnippet, max-image-preview:none" />
+    <meta name="googlebot" content="noindex, nofollow, noimageindex, nosnippet" />
+    <meta name="bingbot" content="noindex, nofollow, noimageindex, nosnippet" />
+  </head>
+  <body class="select-none">
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
+

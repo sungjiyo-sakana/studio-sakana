@@ -1,0 +1,6 @@
+{
+  "name": "Studio Sakana",
+  "description": "Official website for Studio Sakana (スタジオサカナ), Japanese animation vendor, keyframe animation specialist, and talent development hub in partnership with Gekkou Studio.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
